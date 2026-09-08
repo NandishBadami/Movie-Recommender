@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+</head>
+<body>
+    <h1>Movie Recommender</h1>
+    <p style="color: blue;">For hollywood movies released between 1916 - 2017 only</p>
+
+    <form>
+        Enter Movie Name: <br><br>
+        <input type="text" name="name" placeholder="Enter Correct Movie Name">
+        <button type="submit">Submit</button>
+    </form>
+    {% if movies %}
+        <p>Movies Similar to {{name}}</p>
+        <ol>
+        {% for movie in movies %}
+            <li>{{movie}}</li>
+        {% endfor %}
+        </ol>
+    {% endif %}
+    <p style="color: red;">{{error}}</p>
+</body>
+</html>
