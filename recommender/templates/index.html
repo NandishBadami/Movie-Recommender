@@ -8,10 +8,17 @@
 <body>
     <h1>Movie Recommender</h1>
     <p style="color: blue;">For hollywood movies released between 1916 - 2017 only</p>
-    <p style="color: blue;">Note: You have to enter movie name with correct spellings and with correct case to match the movie that is  present in the datasets. Example: Writing "spider man" is wrong ❌ because the correct name of the movie which was released in 2002 was "Spider-Man" ✅. You might have to google the movie name and then copy paste from google to get the correct recommendations(suggestions) for similar movies.</p>
+    <p style="color: blue;"><b>Note:</b> You have to enter movie name in the input box and have to select the movie in the dropdown menu so that correct spellings and case of the movie title will be matched and selected. If a movie is not showing up in the dropdown then the movie is just not present in the dataset.</p>
     <form>
         Enter Movie Name: <br><br>
-        <input type="text" name="name" placeholder="Enter Correct Movie Name">
+        <input autocomplete="off" type="text" name="name" placeholder="Enter Correct Movie Name" list="available-movie-list">
+        <datalist id="available-movie-list">
+            <select>
+                {% for available_movie in available_movies %}
+                    <option value="{{available_movie}}"></option>
+                {% endfor %}
+            </select>
+        </datalist>
         <button type="submit">Submit</button>
     </form>
     {% if movies %}

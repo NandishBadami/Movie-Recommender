@@ -71,6 +71,8 @@ cosine_sim = cosine_similarity(count_vectoriser_matrix)
 
 title_index_mapping = movies_data[['title', 'index']]
 
+available_movies = list(title_index_mapping['title'])
+
 def get_recommendation(title, cosine_sim=cosine_sim, top_n=10, title_index_map=title_index_mapping):
     title_idx = title_index_map.loc[title_index_map['title'] == title, 'index'].tolist()
     
@@ -93,7 +95,7 @@ def home(request):
     if(request.GET.get('name')):
         movies = get_recommendation(request.GET.get('name'))
         if type(movies) == list:
-            return render(request, 'index.html', {'movies': movies, 'name': request.GET.get('name')})
+            return render(request, 'index.html', {'movies': movies, 'name': request.GET.get('name'), 'available_movies': available_movies})
         else:
-            return render(request, 'index.html', {'error': movies})
-    return render(request, 'index.html')
+            return render(request, 'index.html', {'error': movies, 'available_movies': available_movies})
+    return render(request, 'index.html', {'available_movies': available_movies})
