@@ -6,4 +6,4 @@ This project is built using kaggle movie datasets https://www.kaggle.com/dataset
 
 ## How to use the app
 
-You have to enter movie name in the input box with correct spellings and with correct case to match the movie that is present in the datasets. Example: Writing "spider man" is wrong ❌ because the correct name of the movie which was released in 2002 was "Spider-Man" ✅. You might have to google the movie name and then copy paste from google to get the correct recommendations(suggestions) for similar movies.
+You have to enter movie name in the input box and have to select the movie in the dropdown menu so that correct spellings and case of the movie title will be matched and selected. If a movie is not showing up in the dropdown then the movie is just not present in the dataset.
